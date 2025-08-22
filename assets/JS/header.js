@@ -1,3 +1,6 @@
+
+// cause we have the same header on all pages, I used this method and this js file is linked to all html pages.
+
 let header = `    
 <!-- HEADER -->
 <header class="header">
@@ -94,7 +97,7 @@ let header = `
 
         <!-- Third row (Header navbar) -->
     <div>
-        <div class="container g">
+        <div class="container menucontainer">
             <nav class="row">
                 <div class="col"></div>
                 <div class="col-xl-5 dekstopMenu">
@@ -334,7 +337,6 @@ let header = `
 
 document.body.insertAdjacentHTML("afterbegin",header);
 
-
 let openLoginNav = document.querySelector('#open-login-nav');
 let closeLoginNav = document.querySelector('#close-login-nav');
 let sideNavLogin = document.querySelector('.sideNav__login');
@@ -347,7 +349,7 @@ let headerDropDownMenu = document.querySelectorAll('.menu__box__items__dropdown'
 
 let layer = document.querySelector('.layer');
 
-let menu = document.querySelector('.g');
+let menu = document.querySelector('.menucontainer');
 let scrollValue = null;
 
 // Open/Close the login nav
@@ -401,8 +403,12 @@ window.addEventListener('scroll',function(){
 
     if(document.documentElement.scrollTop > 158){
         menu.style.position = 'fixed';
+        menu.style.maxWidth = '100%';
+        menu.style.transition = '0.5s';
+
     }else{
         menu.style.position = 'inherit';  
+        menu.style.maxWidth = '';
     };
     
     if(document.documentElement.scrollTop > 158){
